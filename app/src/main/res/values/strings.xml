@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lat04Movie</string>
+    <string name="all_movie">All Movie</string>
+    <string name="view_all">View All</string>
 </resources>
