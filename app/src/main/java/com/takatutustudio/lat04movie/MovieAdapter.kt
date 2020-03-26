@@ -46,6 +46,7 @@ class MovieAdapter (private var data: List<FilmModel>,
             tvTitle.text = data.judul
             Glide.with(context)
                 .load(data.poster)
+                .into(ivPoster)
 
             itemView.setOnClickListener {
                 listener(data)
