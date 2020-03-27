@@ -1,4 +1,4 @@
-package com.takatutustudio.lat04movie
+package com.takatutustudio.lat04movie.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

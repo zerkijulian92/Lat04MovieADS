@@ -1,9 +1,11 @@
-package com.takatutustudio.lat04movie
+package com.takatutustudio.lat04movie.activity
 
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.MediaController
+import com.takatutustudio.lat04movie.R
+import com.takatutustudio.lat04movie.model.FilmModel
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {

@@ -1,9 +1,12 @@
-package com.takatutustudio.lat04movie
+package com.takatutustudio.lat04movie.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.takatutustudio.lat04movie.R
+import com.takatutustudio.lat04movie.adapter.MovieAdapter
+import com.takatutustudio.lat04movie.model.FilmModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -16,6 +19,30 @@ class MainActivity : AppCompatActivity() {
 
         rv_movie.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
+        // LoadDataSamle
+        loadDataSample();
+
+        rv_movie.adapter =
+            MovieAdapter(datalist) {
+                // Menampilkan Data ke Page Detail (Melempar data Ke DetailActivity)
+                val intent = Intent(this, DetailActivity::class.java)
+                    .putExtra("data", it)
+                startActivity(intent)
+
+            }
+
+        // Fungsi View All Ketika Di Klik
+        tv_viewall.setOnClickListener{
+            // Menampilkan Data ke Page Detail (Melempar data Ke DetailActivity)
+            val intent = Intent(this, AllMovieActivity::class.java)
+                .putExtra("data", datalist)
+            startActivity(intent)
+
+        }
+    }
+
+    // Class loadDataSample
+    private fun loadDataSample() {
         datalist.add(
             FilmModel(
                 "01",
@@ -24,7 +51,7 @@ class MainActivity : AppCompatActivity() {
                 "Drama",
                 R.drawable.ic_ad_astra,
                 R.raw.video_astra_tr,
-                0.0f
+                3.0f
             )
         )
 
@@ -36,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_avengers,
                 R.raw.video_avengers_tr,
-                0.0f
+                8.0f
             )
         )
 
@@ -48,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_poster_sonic,
                 R.raw.video_sonic,
-                0.0f
+                7.0f
             )
         )
 
@@ -60,7 +87,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_bloodshot,
                 R.raw.video_bloodshot_tr,
-                0.0f
+                3.0f
             )
         )
 
@@ -72,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                 "Comedy",
                 R.drawable.ic_birds_of_prey,
                 R.raw.video_birdsprey_tr,
-                0.0f
+                9.0f
             )
         )
 
@@ -84,7 +111,7 @@ class MainActivity : AppCompatActivity() {
                 "Horror",
                 R.drawable.ic_the_invisible_man,
                 R.raw.video_theinvisibleman_tr,
-                0.0f
+                5.0f
             )
         )
 
@@ -99,14 +126,5 @@ class MainActivity : AppCompatActivity() {
                 0.0f
             )
         )
-
-        rv_movie.adapter = MovieAdapter(datalist){
-
-            // Menampilkan Data ke Page Detail (Melempar data Ke DetailActivity)
-            val intent = Intent(this, DetailActivity::class.java)
-                .putExtra("data", it)
-            startActivity(intent)
-
-        }
     }
 }

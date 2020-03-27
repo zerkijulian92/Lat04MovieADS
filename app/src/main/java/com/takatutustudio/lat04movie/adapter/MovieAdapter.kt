@@ -1,4 +1,4 @@
-package com.takatutustudio.lat04movie
+package com.takatutustudio.lat04movie.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.takatutustudio.lat04movie.model.FilmModel
+import com.takatutustudio.lat04movie.R
 
 class MovieAdapter (private var data: List<FilmModel>,
                     private val listener:(FilmModel) -> Unit)
@@ -22,7 +24,9 @@ class MovieAdapter (private var data: List<FilmModel>,
         ContextAdapter     = parent.context
 
         val inflatedView : View = layoutInflater.inflate(R.layout.item_movie_horizontal, parent, false)
-        return MovieViewHolder(inflatedView)
+        return MovieViewHolder(
+            inflatedView
+        )
     }
 
     // size data yang dilakukan untuk perulanggan

@@ -8,9 +8,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppThemeNoActionBar">
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".MainActivity">
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".activity.AllMovieActivity"
+            android:label="All Movie"
+            android:theme="@style/AppTheme">
+            <meta-data android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity"/>
+        </activity>
+        <activity android:name=".activity.DetailActivity" />
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
